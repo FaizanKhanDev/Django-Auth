@@ -1,0 +1,12 @@
+<div class="card mx-2" style="width: 18rem;">
+    <img src="{{Product.ProductImg.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title text-start">{{Product.Title}}</h5>
+        <p class="card-text text-start">{{Product.Description|slice:":60"}} <a href="#!">see more...</a></p>
+        <div class="text-start">
+            <a href="#" class="btn btn-success mx-1">Add to Cart</a>
+            <a href="#" class="btn btn-success mx-1">Buy</a>
+        </div>
+    </div>
+
+</div>

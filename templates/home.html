@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<section class="container my-5 text-center d-flex">
+
+    {% for Product in Products %}
+    {% include "product_card.html" %}
+    {% endfor %}
+      
+</section>
+{% endblock %}

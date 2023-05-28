@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Update Information{% endblock %}
+
+{% block body %}
+<section class="my-5 mx-5 container">
+
+    {% if messages %}
+    {% include "message.html" %}
+    {% endif %}
+
+    <div class="profile_update_side">
+    <h4 class="text-center">Profile Update</h4>
+        <form class="profile_form" method="POST">
+        {% csrf_token %}
+
+        <!-- username -->
+        <div class="profile_form_input_container">
+            <label>Username</label>
+            <input class="form-control" name="username" value="{{ account.username }}" type="text">
+            <p class="form_error">{{form.username.errors}}</p>
+        </div>
+
+        <!-- first name -->
+        <div class="profile_form_input_container">
+            <label>First Name</label>
+            <input class="form-control" name="first_name" type="text" value="{{ account.first_name }}">
+        </div>
+
+        <!-- last name -->
+        <div class="profile_form_input_container">
+            <label>Last Name</label>
+            <input class="form-control" name="last_name" type="text" value="{{ account.last_name }}">
+        </div>
+
+        <!-- email -->
+        <div class="profile_form_input_container">
+            <label>Email</label>
+            <input class="form-control" name="email" type="email" value="{{ account.email }}">
+            <p class="form_error" style="color: red; font-size:14px;">{{form.email.errors}}</p>
+        </div>
+
+        <!-- phone -->
+        <div class="profile_form_input_container">
+            <label>Phone</label>
+            <input class="form-control" name="phone_number" type="number" value="{{ account.phone_number }}">
+        </div>
+
+        <!-- district -->
+        <div class="profile_form_input_container">
+            <label>District</label>
+            <input class="form-control" name="district" type="text" value="{{ account.district }}">
+        </div>
+
+        <!-- Thana -->
+        <div class="profile_form_input_container">
+            <label>Thana</label>
+            <input class="form-control" name="thana" type="text" value="{{ account.thana }}">
+        </div>
+
+        <!-- Post Office -->
+        <div class="profile_form_input_container">
+            <label>Post Office</label>
+            <input class="form-control" name="post_office" type="text" value="{{ account.post_office }}">
+        </div>
+
+        <!-- Password -->
+        <div class="profile_form_input_container">
+            <label>Password</label>
+            <input class="form-control" name="new_password" value="{{account.password}}" type="password">
+            <p class="form_error" style="color: red; font-size:14px;">{{ form.password.errors }}</p>
+        </div>
+
+        <!-- Confirm password -->
+        <div class="profile_form_input_container">
+            <label>Confirm Password</label>
+            <input class="form-control" name="confirm_password" type="password">
+            <p class="form_error" style="color: red; font-size:14px;">{{ form.password.errors }}</p>
+        </div>
+
+        <!-- submit button -->
+        <div class="form_content_container">
+            <button type="submit" class="btn-dark btn">Create</button>
+        </div>
+
+        
+
+    </form>
+    
+    </div>
+
+
+    
+
+</section>
+
+{% endblock %}

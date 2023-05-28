@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Sin Up{% endblock %}
+
+{% block body %}
+<section class="container login_page">
+    <div class="form_container my-4">
+
+        <h2 class="form_heading">Sing Up</h2>
+
+        <form class="custom_form" action="" method="POST" >
+            {% csrf_token %}
+
+            <!-- username -->
+            <div class="form_content_container">
+                <label>Username</label>
+                <input {% if form.is_bound %} value="{{ form.username.value }}" {% endif %} type="text" class="form-control" name="username"required>
+                <p class="form_error" style="color: red; font-size:14px;">{{form.username.errors}}</p>
+            </div>
+
+            <!-- email -->
+            <div class="form_content_container">
+                <label>Email</label>
+                <input {% if form.is_bound %} value="{{ form.email.value }}" {% endif %} type="email" class="form-control" name="email" required>
+                <p class="form_error" style="color: red; font-size:14px;">{{form.email.errors}}</p>
+            </div>
+
+            <!-- password -->
+            <div class="form_content_container">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" required>
+                <p class="form_error" style="color: red; font-size:14px;">{{form.password.errors}}</p>
+            </div>
+
+            <!-- confiem password -->
+            <div class="form_content_container">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control" required>
+                <p class="form_error" style="color: red; font-size:14px;">{{form.password.errors}}</p>
+            </div>
+
+            <div class="form_content_container">
+                <a href="{% url 'Login' %}">Al ready have account?</a>
+            </div>
+
+            <div class="form_content_container">
+                <button type="submit" class="btn btn-dark">Create</button>
+            </div>
+        </form>
+        <hr>
+
+    </div>
+</section>
+{% endblock %}
